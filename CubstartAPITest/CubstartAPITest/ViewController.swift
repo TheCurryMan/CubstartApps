@@ -27,8 +27,33 @@ class ViewController: UIViewController, UITableViewDataSource {
         getAPIData()
     }
     
+    
+    func addData(item: String) {
+        let url = "https://6ddd9ad8.ngrok.io/add?item=" + item
+        let urlObj = URL(string: url)
+        
+        URLSession.shared.dataTask(with: urlObj!) {(data, response, error) in
+            
+            }.resume()
+    }
+    
     func getAPIData() {
         // Fill this in!
+        let url = "https://6ddd9ad8.ngrok.io/get"
+        let urlObj = URL(string: url)
+        
+        URLSession.shared.dataTask(with: urlObj!) {(data, response, error) in
+            do {
+                let jsonData = try JSONDecoder().decode(listItem.self, from: data!)
+                self.todoList = jsonData.items
+                
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+            } catch {
+                print("Error")
+            }
+        }.resume()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -42,6 +67,7 @@ class ViewController: UIViewController, UITableViewDataSource {
     }
     
     @IBAction func reloadTable(_ sender: Any) {
+        self.addData(item: "Conditioner")
         getAPIData()
     }
 }

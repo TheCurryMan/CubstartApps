@@ -14,7 +14,6 @@
 		E117F55E235A9A59009792BA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E117F55D235A9A59009792BA /* Assets.xcassets */; };
 		E117F561235A9A59009792BA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E117F55F235A9A59009792BA /* LaunchScreen.storyboard */; };
 		E117F569235AA338009792BA /* ItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E117F568235AA338009792BA /* ItemTableViewCell.xib */; };
-		E117F56B235BC564009792BA /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = E117F56A235BC564009792BA /* Test.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,7 +26,6 @@
 		E117F560235A9A59009792BA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E117F562235A9A59009792BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E117F568235AA338009792BA /* ItemTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItemTableViewCell.xib; sourceTree = "<group>"; };
-		E117F56A235BC564009792BA /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Test.swift; path = ../../Test.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,7 +61,6 @@
 				E117F554235A9A57009792BA /* AppDelegate.swift */,
 				E117F556235A9A57009792BA /* SceneDelegate.swift */,
 				E117F558235A9A57009792BA /* ViewController.swift */,
-				E117F56A235BC564009792BA /* Test.swift */,
 				E117F55A235A9A57009792BA /* Main.storyboard */,
 				E117F568235AA338009792BA /* ItemTableViewCell.xib */,
 				E117F55D235A9A59009792BA /* Assets.xcassets */,
@@ -146,7 +143,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				E117F559235A9A57009792BA /* ViewController.swift in Sources */,
-				E117F56B235BC564009792BA /* Test.swift in Sources */,
 				E117F555235A9A57009792BA /* AppDelegate.swift in Sources */,
 				E117F557235A9A57009792BA /* SceneDelegate.swift in Sources */,
 			);
