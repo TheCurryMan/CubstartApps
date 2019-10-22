@@ -8,15 +8,17 @@
 
 import UIKit
 
-struct listItem: Decodable {
-    let items: [String]
+struct Country: Decodable {
+    let name: String
+    let capital: String
+    let region: String
 }
 
 class ViewController: UIViewController, UITableViewDataSource {
 
     @IBOutlet weak var tableView: UITableView!
     
-    var todoList:[String] = []
+    var countryList:[Country] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,7 +31,7 @@ class ViewController: UIViewController, UITableViewDataSource {
     
     
     func addData(item: String) {
-        let url = "https://6ddd9ad8.ngrok.io/add?item=" + item
+        let url = "http://restcountries.eu/rest/v2/all" + item
         let urlObj = URL(string: url)
         
         URLSession.shared.dataTask(with: urlObj!) {(data, response, error) in
@@ -39,13 +41,13 @@ class ViewController: UIViewController, UITableViewDataSource {
     
     func getAPIData() {
         // Fill this in!
-        let url = "https://6ddd9ad8.ngrok.io/get"
+        let url = "https://restcountries.eu/rest/v2/all"
         let urlObj = URL(string: url)
         
         URLSession.shared.dataTask(with: urlObj!) {(data, response, error) in
             do {
-                let jsonData = try JSONDecoder().decode(listItem.self, from: data!)
-                self.todoList = jsonData.items
+                let jsonData = try JSONDecoder().decode([Country].self, from: data!)
+                self.countryList = jsonData
                 
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
@@ -57,12 +59,12 @@ class ViewController: UIViewController, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.todoList.count
+        return self.countryList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var cell = tableView.dequeueReusableCell(withIdentifier: "item") as! ItemTableViewCell
-        cell.itemName.text = todoList[indexPath.row]
+        cell.itemName.text = countryList[indexPath.row].name
         return cell
     }
     
